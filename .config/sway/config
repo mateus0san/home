@@ -181,11 +181,11 @@ bindsym $mod+r mode "resize"
     bindsym $mod+8 exec swaylock -f -i ~/Pictures/Wallpaper/lock.jpg
     bindsym $mod+0 exec swaylock -f -i ~/Pictures/Wallpaper/lock.jpg && sleep 2 && systemctl suspend
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    bindsym Print exec grim -g "$(slurp)"
 
 bar {
 	mode hide
-	position top
+	position bottom
 	font hack
 	status_command while ~/.config/sway/status.sh; do sleep 1; done
 }
