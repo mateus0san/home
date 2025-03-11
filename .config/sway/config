@@ -190,15 +190,18 @@ bar {
 	status_command while ~/.config/sway/status.sh; do sleep 1; done
 }
 
-#Keyboard layout
+# Keyboard layout
 input type:keyboard xkb_layout br
+# Keyboard input rate and delay
+input type:keyboard repeat_rate 30
+input type:keyboard repeat_delay 250
 
 # Border
 default_border none
 default_floating_border none
 
-input type:keyboard repeat_rate 30
-input type:keyboard repeat_delay 250
+# Touchpad and mouse
+input type:touchpad events disabled_on_external_mouse
 
 # Space between windows
 gaps inner 4
