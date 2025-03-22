@@ -1,0 +1,14 @@
+/*
+!.gitignore
+!/.config/
+/.config/*
+!/.config/sway
+!/.config/fish
+!/.config/fuzzel
+!/.config/helix
+!/.config/kitty
+!/.config/zellij
+!/.config/gammastep
+!/Pictures
+/Pictures/*
+!/Pictures/wallpaper

@@ -8,12 +8,12 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
 # Your preferred application launcher
 set $menu fuzzel
 
 ### Output configuration
-output * bg ~/Pictures/arch.png fill
+output * bg ~/Pictures/wallpaper/arch.png fill
 output eDP-1 resolution 1920x1080 position 0,0 scale 1
 
 ### Key bindings
@@ -166,14 +166,19 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim -g "$(slurp)"
     # Lock screen, Close the lid to suspend
-    bindsym $mod+0 exec swaylock -f -i ~/Pictures/arch.png
+    bindsym $mod+0 exec swaylock -f -i ~/Pictures/wallpaper/arch.png
 
 # Status Bar:
 bar {
     font hack
     position top
-    
+
     status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    colors {
+        background #282a36dd
+        focused_workspace #bd93f9ff #171925dd #ffffffff
+        }
 }
 # Keyboard input rate and delay
 input type:keyboard repeat_rate 30
@@ -188,13 +193,15 @@ exec_always gammastep
 # Touchpad
 input type:touchpad tap enabled
 
-# Personal browser
-exec swaymsg 'workspace 4; exec qutebrowser'
-# Hack browser
-exec swaymsg 'workspace 3; exec "chromium --proxy-server=http://localhost:8080"'
-# Search random things
+# Browser to search random things
 exec swaymsg 'workspace 2; exec firefox'
 # Terminal
-exec swaymsg 'workspace 1; exec "foot ~/.config/tmux/session.sh"'
+exec swaymsg 'workspace 1; exec kitty'
+
+# Border
+default_border pixel 1
+default_floating_border pixel 1
+
+seat * hide_cursor when-typing enabled
 
 include /etc/sway/config.d/*
